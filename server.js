@@ -37,15 +37,6 @@ const usersRouter = require('./routes/users');
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
 
-if(process.env.NODE_ENV === "PROD"){
-  app.use(express.static('frontend/build'));
-}
-
-//as we go inside frontend folder
-// and create the dist in react
-// : npm run build
-//then change in package.json
-
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
