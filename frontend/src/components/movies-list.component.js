@@ -15,13 +15,14 @@ const Exercise = props => (
   </tr>
 )
 
-export default class ExercisesList extends Component {
+export default class MoviesList extends Component {
  
     state = {exercises: []};
  
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/')
+    console.log(this.props.backend_url)
+    axios.get(this.props.backend_url+'/exercises')
       .then(response => {
         //console.log(response.data)
         this.setState({ exercises: response.data })
@@ -32,7 +33,7 @@ export default class ExercisesList extends Component {
   }
 
   deleteExercise=(id)=> {
-    axios.delete('http://localhost:5000/exercises/'+id)
+    axios.delete(this.props.backend_url+'/exercises/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({
@@ -42,7 +43,7 @@ export default class ExercisesList extends Component {
 
   exerciseList=()=> {
     return this.state.exercises.map(currentexercise => {
-      return <Exercise exercise={currentexercise} deleteExercise={this.deleteExercise} key={currentexercise._id}/>;
+      return <Exercise backend_url={this.props.backend_url} exercise={currentexercise} deleteExercise={this.deleteExercise} key={currentexercise._id}/>;
     })
   }
 
