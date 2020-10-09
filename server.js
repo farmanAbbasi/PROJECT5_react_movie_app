@@ -37,6 +37,9 @@ const usersRouter = require('./routes/users');
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
 
+app.get("/",(req,res)=>{
+  res.send("Hello World Heroku");
+})
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
