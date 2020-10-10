@@ -1,10 +1,10 @@
-import React, { Component, useState,useEffect } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class CreateMovies extends Component {
-  
+
   // useEffect(() => {
   //   function handleStatusChange(status) {
   //     setIsOnline(status.isOnline);
@@ -18,10 +18,10 @@ export default class CreateMovies extends Component {
     date: new Date(),
     users: []
   }
-  
+
 
   componentDidMount() {
-    axios.get(this.props.backend_url+'/users')
+    axios.get(this.props.backend_url + '/users')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -35,7 +35,7 @@ export default class CreateMovies extends Component {
       })
 
   }
- 
+
 
   onChangeUsername = (e) => {
     this.setState({
@@ -94,14 +94,19 @@ export default class CreateMovies extends Component {
 
     console.log(exercise);
 
-    axios.post(this.props.backend_url+'/exercises/add', exercise)
-      .then(res => console.log(res.data));
+    axios.post(this.props.backend_url + '/exercises/add', exercise)
+      .then(res => {
+        console.log(res.data)
+        window.location = '/';
+      }
+      );
 
-    window.location = '/';
+
   }
 
   render() {
     return (
+      
       <div>
         <h3>Create New Movies Log</h3>
         <form onSubmit={this.onSubmit}>
@@ -122,6 +127,9 @@ export default class CreateMovies extends Component {
               }
             </select>
           </div>
+        
+
+
           <div className="form-group">
             <label>Movie Name:</label>
             <input type="text"
@@ -153,7 +161,7 @@ export default class CreateMovies extends Component {
           <div className="form-group">
             <label>Date: </label>
             <div className="form-control">
-              <DatePicker className=" myCustomDate"
+              <DatePicker  className=" myCustomDate"
                 selected={this.state.date}
                 onChange={this.onChangeDate}
               />

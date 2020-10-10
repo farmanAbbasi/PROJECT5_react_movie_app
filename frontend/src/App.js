@@ -10,8 +10,9 @@ import CreateUser from "./components/create-user.component";
 import "./App.css"
 
 function App() {
+  //just see how the const backend url is sent to all the components 
   const BACKEND_URL = "https://react-movie-db-123.herokuapp.com"
-
+  //const BACKEND_URL ="http://localhost:5000"
   return (
     <Router>
       <div >
@@ -19,7 +20,9 @@ function App() {
         <br />
         <div className="container">
           <Switch>
-            <Route path="/edit/:id"  component={()=><EditMovies backend_url={BACKEND_URL}/>} />
+            {/* if i was sending the backend_url from here it was breaking, so i sent from where this component was called to link  */}
+           <Route path="/edit/:id"  component={EditMovies} />
+           
             <Route path="/create" component={()=><CreateMovies backend_url={BACKEND_URL}/>}/>
             <Route path="/user"  component={()=><CreateUser backend_url={BACKEND_URL}/>} />
             <Route path="/" >

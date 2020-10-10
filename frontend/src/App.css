@@ -34,5 +34,24 @@
 
 .myCustomDate{
   border:none;
-  width:100vh
+  width:49vh
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center
+}
+.maincard{
+    width: 250px;
+    background: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.user{
+  display:flex;
+  justify-content: space-between;
 }

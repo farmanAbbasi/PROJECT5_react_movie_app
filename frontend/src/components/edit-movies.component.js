@@ -24,7 +24,7 @@ export default class EditMovies extends Component {
   // }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/'+this.props.match.params.id)
+    axios.get(this.props.location.back_url+'/exercises/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -38,7 +38,7 @@ export default class EditMovies extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:5000/users/')
+    axios.get(this.props.location.back_url+'/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -94,10 +94,13 @@ export default class EditMovies extends Component {
 
     console.log(exercise);
 
-    axios.post('http://localhost:5000/exercises/update/' + this.props.match.params.id, exercise)
-      .then(res => console.log(res.data));
+    axios.post(this.props.location.back_url+'/exercises/update/' + this.props.match.params.id, exercise)
+      .then(res => {console.log(res.data)
+        window.location = '/';
+        
+      });
 
-    window.location = '/';
+   
   }
  
   render() {
