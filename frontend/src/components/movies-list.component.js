@@ -25,8 +25,8 @@ const ExerciseCard = props => (
     <div>
       <div style={{fontWeight:"bold"}}>movie: {props.exercise.movie}</div>
       desc: {props.exercise.description} | {props.exercise.duration} mins
-      <div> <Link to={{pathname: `/edit/${props.exercise._id}`, back_url: `${props.backend_url}`}}>edit </Link> 
-      | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a></div>
+      <div> <button className="btn btnme"><Link to={{pathname: `/edit/${props.exercise._id}`, back_url: `${props.backend_url}`}}>edit </Link> </button>
+      <button  className="btn btnme" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</button></div>
     </div>
 
   </div>
