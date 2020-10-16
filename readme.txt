@@ -1,3 +1,5 @@
+REACT MOvie Review App
+
 in root:
 
 create a frontend with react app
