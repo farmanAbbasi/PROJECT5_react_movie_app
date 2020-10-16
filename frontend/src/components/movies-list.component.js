@@ -13,8 +13,12 @@ const ExerciseCard = props => (
        <p>{props.exercise.description.substring(0, 80)}</p>
     </div>
     {/* props.deleteExercise(props.exercise._id)   */}
-    <div class="user">
-      <p>By {props.exercise.username} {props.exercise.date.substring(0, 10)} </p>
+    
+    <div className="user">
+      <div style={{fontSize:"13px"}}>
+      <p style={{marginBottom:"0px"}}>By {props.exercise.username}</p>
+        <p  style={{marginBottom:"0px"}}> {props.exercise.date.substring(0, 10)} </p>
+      </div>
       <div>
             <Link className="myIcons" to={{pathname: `/edit/${props.exercise._id}`,
             back_url: `${props.backend_url}`}}>
