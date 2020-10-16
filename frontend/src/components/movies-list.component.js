@@ -12,6 +12,7 @@ const ExerciseCard = props => (
       </div>
        <p>{props.exercise.description.substring(0, 80)}</p>
     </div>
+    {/* props.deleteExercise(props.exercise._id)   */}
     <div class="user">
       <p>By {props.exercise.username} {props.exercise.date.substring(0, 10)} </p>
       <div>
@@ -20,7 +21,8 @@ const ExerciseCard = props => (
             <RiIcons.RiEditLine/>
             </Link> 
             <span className="myIcons" >
-            <RiIcons.RiDeleteBin6Line onClick={() => { { console.log("delete clicked")/* props.deleteExercise(props.exercise._id) */} }}/>
+            
+            <RiIcons.RiDeleteBin6Line onClick={() => {console.log("delete clicked")}}/>
             </span>
             <span className="myIcons" >
               <RiIcons.RiAliensLine/>
