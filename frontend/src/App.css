@@ -1,3 +1,13 @@
+button:active{
+  transform: scale(0.98);
+}
+p{
+  margin-top:0px;
+  margin-bottom:10px;
+}
+
+/* globals....css at the top */
+
 .App {
   text-align: center;
 }
@@ -44,16 +54,31 @@
     justify-content: center
 }
 .maincard{
-    width: 250px;
-    background: #eee;
-    padding: 20px;
+    width: 100%;
+    
     border-radius: 10px;
     margin: 10px;
 }
 
+.container{
+  width: 50%;
+}
+@media only screen and (max-width: 600px) {
+  .container{
+    width: 100%;
+  }
+ 
+  
+}
+
 .user{
   display:flex;
+  flex-wrap:wrap;
   justify-content: space-between;
+  align-items: center;
+  color:rgba(117, 117, 117, 1);
+  font-size:12px;
+  font-style:italic;
 }
 .btnme{
   margin: 3px;
@@ -63,10 +88,23 @@
     background-color: #212529;
     color: white ;
 }
+
 a{
   color:white;
 }
 button:hover a:hover{
   color:white !important;
   text-decoration:none
+}
+
+.myIcons a{
+  color:rgba(117, 117, 117, 1);
+   cursor: pointer;
+   margin-bottom: 10px;
+}
+.myIcons{
+  color: rgba(117, 117, 117, 1);
+  padding: 6px;
+  font-size: 22px;
+  cursor: pointer;
 }

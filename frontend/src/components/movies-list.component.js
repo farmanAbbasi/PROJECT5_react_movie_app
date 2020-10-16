@@ -1,36 +1,41 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
-// const Exercise = props => (
-//   <tr>
-//     <td>{props.exercise.username}</td>
-//     <td>{props.exercise.movie}</td>
-//     <td>{props.exercise.description}</td>
-//     <td>{props.exercise.duration}</td>
-//     <td>{props.exercise.date.substring(0,10)}</td>
-//     <td>
-//       {/* passing backend_url from link */}
-//       <Link to={{pathname: `/edit/${props.exercise._id}`, back_url: `${props.backend_url}`}}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
-//     </td>
-//   </tr>
-// )
+import * as RiIcons from 'react-icons/ri';
 
 const ExerciseCard = props => (
+
   <div class="maincard">
-    <div class="user">
-      <span>{props.exercise.username} </span>
-      <p>{props.exercise.date.substring(0, 10)}</p>
-    </div>
     <div>
-      <div style={{fontWeight:"bold"}}>movie: {props.exercise.movie}</div>
-      desc: {props.exercise.description} | {props.exercise.duration} mins
-      <div> <button className="btn btnme"><Link to={{pathname: `/edit/${props.exercise._id}`, back_url: `${props.backend_url}`}}>edit </Link> </button>
-      <button  className="btn btnme" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</button></div>
+      <div style={{fontWeight:"bold",padding:"10px 0px"}}>
+      {props.exercise.movie}
+      </div>
+       <p>{props.exercise.description.substring(0, 20)}</p>
+    </div>
+    <div class="user">
+      <p>By {props.exercise.username} {props.exercise.date.substring(0, 10)} </p>
+      <div>
+            <Link className="myIcons" to={{pathname: `/edit/${props.exercise._id}`,
+            back_url: `${props.backend_url}`}}>
+            <RiIcons.RiEditLine/>
+            </Link> 
+            <span className="myIcons" >
+            <RiIcons.RiDeleteBin6Line onClick={() => { {/* props.deleteExercise(props.exercise._id) */} }}/>
+            </span>
+            <span className="myIcons" >
+              <RiIcons.RiAliensLine/>
+            </span>
+         </div>
+
+     
     </div>
 
   </div>
+  
 )
+
+
+// AiOutlineSmile
 export default class MoviesList extends Component {
 
   state = { exercises: [] };
@@ -68,7 +73,8 @@ export default class MoviesList extends Component {
   render() {
     return (
       <>
-        <h3>My favourite Movies</h3>
+        <h3 >Todays Top Ten</h3>
+        <hr></hr>
         <div className="cards">
           {/* <table className="table">
           <thead className="thead-light">

@@ -2,7 +2,7 @@ import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Navbar from "./components/navbar.component"
+import Navbar from "./components/navbar/Navbar"
 import MoviesList from "./components/movies-list.component";
 import EditMovies from "./components/edit-movies.component";
 import CreateMovies from "./components/create-movies.component";
