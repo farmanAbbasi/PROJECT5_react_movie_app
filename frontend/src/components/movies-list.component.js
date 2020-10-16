@@ -10,7 +10,7 @@ const ExerciseCard = props => (
       <div style={{fontWeight:"bold",padding:"10px 0px"}}>
       {props.exercise.movie}
       </div>
-       <p>{props.exercise.description.substring(0, 20)}</p>
+       <p>{props.exercise.description.substring(0, 80)}</p>
     </div>
     <div class="user">
       <p>By {props.exercise.username} {props.exercise.date.substring(0, 10)} </p>
