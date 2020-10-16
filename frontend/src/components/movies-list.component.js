@@ -20,7 +20,7 @@ const ExerciseCard = props => (
             <RiIcons.RiEditLine/>
             </Link> 
             <span className="myIcons" >
-            <RiIcons.RiDeleteBin6Line onClick={() => { {/* props.deleteExercise(props.exercise._id) */} }}/>
+            <RiIcons.RiDeleteBin6Line onClick={() => { { console.log("delete clicked")/* props.deleteExercise(props.exercise._id) */} }}/>
             </span>
             <span className="myIcons" >
               <RiIcons.RiAliensLine/>
